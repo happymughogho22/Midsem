@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calculateDisc(price, customerType, isHoliday) {
+    if (price < 5000) {
+        return price; // No discount if price is less than 5000
+    }
+
+    let discount = 0;
+
+    // Applying discount based on customer type
+    switch (customerType.toLowerCase()) {
+        case 'regular':
+            discount = 0.05; 
+            break;
+        case 'member':
+            discount = 0.10;
+            break;
+        case 'vip':
+            discount = 0.20; 
+            break;
+        default:
+            discount = 0; 
+    }
+
+    // Apply additional 5% discount if it's a holiday
+    if (isHoliday && customerType.toLowerCase() === 'vip') {
+        discount += 0.05;
+    }
+
+    // Calculate final price
+    const finalPrice = price * (1 - discount);
+    return finalPrice;
+}
+
+console.log(calculateDisc(6000, 'regular', false)); 
+console.log(calculateDisc(6000, 'member', false));  
+console.log(calculateDisc(6000, 'vip', false)); 
+console.log(calculateDisc(6000, 'vip', true));  
+console.log(calculateDisc(4000, 'vip', true));  
+    </script>
+</body>
+</html>
