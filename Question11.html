@@ -11,24 +11,32 @@
 
 // Part a: Object Creation
 const post = {
-  id: ORD-2025-00456,
-  customer: { id: "ugyy7gh7", name: "John Doe", profilePic: "https://url.net/123/pic.jpg" },
-  content: [
-    { type: "image", url: "https://url.net/123/pic3.jpg" },
-    { type: "video", url: "https://url.net/123/pic4.jpg" }
+  id: 'ORD-2025-00456',
+  customer: { id: "CUST-1001", name: "John Doe", email: "joe.doe@gmail.com" },
+  address: [
+    { street: "45 Independence Drive" },
+    { city: "Lilongwe" },
+    { country: "Malawi" },
+    { postalcode: 265 },
   ],
-  engagements: { likes: 254, loves: 34, haha: 67, wow: 23, shares: 45 },
-  comments: [
-    { id: "c767", userId: "uytutyt6", text: "Gojasi wa kwathu!", timestamp: "2025-08-04T09:15:00Z" }
+  items: [
+  {productId:"P-001", name:"Wireless Mouse", quantity: 2, price:7500 },
+  {productId:"P-002", name:"Mechanical keyboard", quantity: 1, price:25500 },
+    
   ],
-  privacy: "public",
-  tags: ["Alice Wawukali", "James Wantali", "Peter Woyera"]
+  payment:[ { method: "Mobile Money", phone: "0999123456", transactionId: "TXN-900123", success:true}],
+
+
+  delivery: {method:Courier, status : "In transit", estimateddelivery :"2025-08-10" },
+  discountcode :"NEWUSER10, FREESHIP",
+  ordertotal :40500,
+  createdAt : "2025-08-04T14:25:00Z",
+  updateAt : "2025-08-04T14:29:00Z",
 };
 
 // Part b: Update Object
-post.comments.push({ id: "c769", text: "New comment" });
-post.engagements.likes++;
-post.tags.pop(); // Removes last tag
+post.items.push({ productId: "P-003", name: "laptop-hp", quantity:5, price: 7900000});
+
 
 // Part c: JSON Conversion
 const postJSON = JSON.stringify(post);
